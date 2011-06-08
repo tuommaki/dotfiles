@@ -1,0 +1,23 @@
+Config {       font         = "xft:DejaVu Sans Mono:pixelsize=8" -- "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"  
+             , bgColor      = "#000000"
+             , fgColor      = "#00FFFF"
+	          , position =  Top
+             , lowerOnStart = False
+             , commands     = [ Run Network "em1" ["-L","0","-H","32","-l", "green", "--normal","orange","--high","red"] 40
+                              , Run Network "wlan0" ["-L","0","-H","32","-l", "green", "--normal","orange","--high","red"] 40
+                              , Run Weather "EHRD" ["-t"," <tempC>C","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000
+
+                              , Run Cpu ["<cpu0>/<cpu1>","-L","3","-H","50","-l","green","--normal","orange","--high","red"]   40
+                              , Run Cpu ["<cpu0>","-L","3","-H","50","-l","green","--normal","orange","--high","red"]  40
+                              , Run Memory ["-t","Mem: <usedratio>%", "-l", "green", "--normal","orange","--high","red"] 40
+                              , Run Swap [] 10
+			                     , Run Date "%a %b %_d %H:%M" "date" 60
+                              , Run BatteryP ["C1F3","C1F4"] ["-t","<left>","-L","30","-H","90","-l","red","-n","orange","-h","green"]  60
+                              , Run TopMem [] 40
+                              , Run TopProc [] 40
+                              , Run StdinReader
+                              ]
+             , sepChar      = "%"
+             , alignSep     = "}{"
+	          , template = "%StdinReader% }{ %cpu% %memory% * %swap%  <fc=#0033FF>|</fc> %top% * %topmem% <fc=#0033FF>|</fc> %em1% %wlan0%<fc=#0033FF>|</fc> %date%"
+             }

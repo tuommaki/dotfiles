@@ -1,0 +1,59 @@
+!XTerm*background: #111111
+!XTerm*foreground: #51a366
+XTerm*background: #2c2c2c
+XTerm*foreground: #dcdccc
+XTerm*highlightColor: #ffffff
+XTerm*utf8: 1
+XTerm*termName: xterm-256color
+XTerm*faceName: Monospace:size=8
+XTerm*boldFont: Monospace:style=Bold:size=8
+XTerm*scrollBar: false
+XTerm*colorMode: true
+XTerm*eightBitInput: false
+XTerm*saveLines: 65536
+
+
+
+!-------------------------------------------------------------------------------
+!
+!
+!      U R X V T
+!
+!
+!!:antialias=true:hinting=true
+!URxvt*termName:                 rxvt-unicode
+URxvt*termName:                 xterm-256color
+URxvt*font:                     xft:DejaVu Sans Mono:size=8:antialias=false
+URxvt*boldFont:                 xft:DejaVu Sans Mono:size=8,bold:antialias=false
+URxvt*italicFont:               xft:DejaVu Sans Mono:size=8,italic:antialias=false
+URxvt*boldItalicFont:           xft:DejaVu Sans Mono:size=8,bold,italic:antialias=false
+URxvt*iso14755_52:              false
+
+!URxvt*font:                     xft:Monaco:size=8
+!URxvt*boldFont:                 xft:Monaco:size=8,bold
+!URxvt*italicFont:               xft:Monaco:size=8,italic
+!URxvt*boldItalicFont:           xft:Monaco:size=8,bold,italic
+
+URxvt*saveLines:                32767
+URxvt*scrollBar:	              false
+URxvt*scrollBar_right:	        true
+URxvt*loginShell:	              true
+URxvt*buffered:                 true
+URxvt*cutchars:		           "()*,<>[]{}|"
+URxvt*secondaryScroll:	        true
+URxvt*perl-lib:		           /usr/lib/urxvt/perl/
+URxvt*perl-ext-common:	        default,matcher
+URxvt*urlLauncher:	            /usr/bin/google-chrome
+URxvt*matcher.button:	        1
+URxvt*matcher.pattern.1:        \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+URxvt*visualBell:	              true
+URxvt*keysym.C-u:               perl:matcher
+URxvt*urgentOnBell:             true
+URxvt*keysym.Home:              \033[1~
+URxvt*keysym.End:               \033[4~
+
+
+!URxvt*background:               #111111
+!URxvt*foreground:               #51a366
+URxvt*background: #2c2c2c
+URxvt*foreground: #dcdccc

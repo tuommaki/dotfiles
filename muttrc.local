@@ -1,0 +1,10 @@
+# Local Mutt settings
+
+set sendmail="/usr/bin/msmtp"   # how to deliver mail
+
+set mbox_type=Maildir
+set folder="~/Mail"
+set spoolfile="+INBOX"
+set mask="!^\\.[^.]"
+set record="+Sent"
+set postponed="+Drafts"

@@ -1,0 +1,20 @@
+
+# Mutt color settings
+color normal      white          default
+color attachment  brightyellow   default
+color hdrdefault  cyan           default
+color indicator   brightblue     default
+color markers     brightred      default
+color quoted      green          default
+color signature   cyan           default
+color tilde       blue           default
+color tree        red            default
+color quoted1     green          default
+
+color index       brightyellow   default ~N # New
+color index       yellow         default ~O # Old
+color index       brightred      default ~F # Flagged
+
+# example of how to colorize based on FROM:
+# color index     magenta        default '~f foo@example.com'
+

@@ -1,0 +1,13 @@
+# Mutt mailboxes
+
+mailboxes "+INBOX"
+mailboxes "+Sent"
+mailboxes "+Drafts"
+mailboxes "+Trash"
+mailboxes "+admin"
+mailboxes "+haskell-beginners"
+mailboxes "+haskell-cafe"
+mailboxes "+IT-Team"
+mailboxes "+JIRA"
+mailboxes "+postmaster"
+mailboxes "+mail-bounces"
