@@ -1,0 +1,24 @@
+[ui]
+username = Tuomas Makinen <tuomas.makinen@<from>.com>
+verbose = True
+#merge = vimdiff
+
+#[merge-tools]
+#vimdiff.executable = vim
+#vimdiff.args = -d $base $local $output $other +close +close
+
+[pager]
+pager = less -FSRX
+attend = annotate,cat,diff,export,glog,log,qdiff,help,outgoing,incoming,heads,showconfig,status
+
+[extensions]
+hgattic = /home/tmak/Applications/hgattic/attic.py
+hgsubversion = /home/tmak/Applications/hgsubversion/hgsubversion
+hgext.record=
+pager =
+color = 
+rebase =
+hgk =
+
+[hgk]
+path = /usr/libexec/mercurial
