@@ -8,6 +8,8 @@ set reverse_name
 set move=no
 unset mark_old
 set forward_quote
+set mime_forward=yes
+set mime_forward_rest=yes
 set include
 set fast_reply=yes
 set indent_str="> "
@@ -43,7 +45,7 @@ source ~/.mutt/mailboxes
 
 # Me
 set realname="Tuomas Makinen"
-set from=$tuomas.makinen@<from>
+set from=tuomas.makinen@<from>.com
 set use_from=yes
 
 # Mailing lists
@@ -80,7 +82,7 @@ macro index       h "c?\t"    # show the "folder view" when I hit h
 #<pipe-entry>'w3m'<enter>\
 #<enter-command>'unset pipe_decode'<enter> \
 #'Follow links in w3m'
-#auto_view text/html  application/msword
+auto_view text/html application/msword
 
 # Printer
 set print_command="a2ps -g -Email -d -1 -M a4 -R"
