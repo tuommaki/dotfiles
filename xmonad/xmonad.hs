@@ -13,6 +13,7 @@ import XMonad.Layout.DwmStyle
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spiral
 import XMonad.Layout.SimpleFloat
+import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.Run
@@ -32,15 +33,15 @@ main = do
    xmproc <- spawnPipe "xmobar" -- start xmobar
    xmonad $ ewmh defaultConfig
                { borderWidth        = 1
-               , normalBorderColor  = "grey30"
-               , focusedBorderColor = "#aecf96" 
+               , normalBorderColor  = fgColor promptConfig --"grey30"
+               , focusedBorderColor = bgColor promptConfig --"#aecf96" 
                , workspaces         = ["1:web", "2:dev", "3:dev", "4:media", "5:tmp", "6:tmp", "7:tmp", "8:tmp", "9:tmp", "0:tmp"] 
 --               , terminal           = "urxvtc"
                , terminal           = "urxvt256c-ml"
                , modMask            = mod4Mask
                , manageHook         = manageDocks
                , logHook            = takeTopFocus >> setWMName "LG3D" >> (dynamicLogWithPP $ customPP xmproc)
-               , layoutHook         = avoidStruts (tiled ||| Mirror tiled ||| MosaicAlt M.empty ||| Circle ||| ResizableTall 1 (3/100) (1/2) [] ||| simpleFloat ||| myChatLayout ||| spiral (6/7) ||| noBorders Full) 
+               , layoutHook         = avoidStruts (tiled ||| Mirror tiled ||| MosaicAlt M.empty ||| Circle ||| ResizableTall 1 (3/100) (1/2) [] ||| simpleFloat ||| ThreeColMid 1 (3/100) (1/2) ||| myChatLayout ||| spiral (6/7) ||| noBorders Full) 
                , keys               = \c -> myKeys `M.union` 
                keys defaultConfig c 
                }
@@ -61,7 +62,7 @@ myChatLayout = reflectHoriz $ withIM size roster $ reflectHoriz $ Grid
 -- redifine some keys
 --
 myKeys = M.fromList $
-   [ ((mod4Mask     , xK_p      ), shellPrompt myXPConfig)
+   [ ((mod4Mask     , xK_p      ), shellPrompt promptConfig)
    , ((mod4Mask     , xK_Return ), dwmpromote)
    , ((mod4Mask     , xK_b      ), sendMessage ToggleStruts)
    , ((mod4Mask     , xK_a      ), sendMessage MirrorShrink)
@@ -97,14 +98,49 @@ customPP h = defaultPP
                   , ppOutput = hPutStrLn h 
                   }
  
+-- dynamiclog pretty printer for dzen
+--
+--robPP h = defaultPP 
+--                 { ppCurrent = wrap "^fg(#000000)^bg(#a6c292)^p(2)^i(/home/tmak/.dzen_bitmaps/has_win.xbm)" "^p(2)^fg()^bg()"
+--                  , ppVisible = wrap "^bg(grey30)^fg(grey75)^p(2)" "^p(2)^fg()^bg()"
+--                  , ppSep     = " ^fg(grey60)^r(3x3)^fg() "
+--                  , ppLayout  = dzenColor "#80AA83" "" .
+--                                (\x -> case x of
+--                                         "Tall" -> "^i(/home/tmak/.dzen_bitmaps/tall.xbm)"
+--                                         "Mirror Tall" -> "^i(/home/tmak/.dzen_bitmaps/mtall.xbm)"
+--                                         "Full" -> "^i(/home/tmak/.dzen_bitmaps/full.xbm)"
+--                                )
+--                  , ppTitle   = dzenColor "white" "" . wrap "< " " >" 
+--                  , ppOutput   = hPutStrLn h
+--                  }
+
+-- solarized color pallette
+solbase03  = "#002b36"
+solbase02  = "#073642"
+solbase01  = "#586e75"
+solbase00  = "#657b83"
+solbase0   = "#839496"
+solbase1   = "#93a1a1"
+solbase2   = "#eee8d5"
+solbase3   = "#fdf6e3"
+solyellow  = "#b58900"
+solorange  = "#cb4b16"
+solred     = "#dc322f"
+solmagenta = "#d33682"
+solviolet  = "#6c71c4"
+solblue    = "#268bd2"
+solcyan    = "#2aa198"
+solgreen   = "#859900"
+
 -- shellprompt config
 --
-myXPConfig = XPC { 
+promptConfig = XPC { 
+                           --font                = "-*-profont-*-*-*-*-11-*-*-*-*-*-iso8859"
                            font                = "xft:DejaVu Sans Mono-8"
-                         , bgColor             = "#111111"
-                         , fgColor             = "#d5d3a7"
-                         , bgHLight            = "#aecf96"
-                         , fgHLight            = "black"
+                         , bgColor             = solbase03 --"#111111"
+                         , fgColor             = solbase1 -- "#d5d3a7"
+                         , bgHLight            = solyellow -- "#aecf96"
+                         , fgHLight            = solbase02 -- "black"
                          , borderColor         = "black"
                          , promptBorderWidth   = 0
                          , position            = Top
