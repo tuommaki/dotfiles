@@ -12,7 +12,7 @@ pager = less -FSRX
 attend = annotate,cat,diff,export,glog,log,qdiff,help,outgoing,incoming,heads,showconfig,status
 
 [extensions]
-hgattic = /home/tmak/Applications/hgattic/attic.py
+hgshelve = /home/tmak/Applications/hgshelve/hgshelve.py
 hgsubversion = /home/tmak/Applications/hgsubversion/hgsubversion
 hgext.record=
 pager =
