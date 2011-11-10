@@ -1,6 +1,6 @@
 Config {       font         = "xft:DejaVu Sans Mono:pixelsize=8" -- "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"  
-             , bgColor      = "#000000"
-             , fgColor      = "#00FFFF"
+             , bgColor      = "#002B36"
+             , fgColor      = "#93A1A1"
 	          , position =  Top
              , lowerOnStart = False
              , commands     = [ Run Network "em1" ["-L","0","-H","32","-l", "green", "--normal","orange","--high","red"] 40
