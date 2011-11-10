@@ -16,12 +16,15 @@ if has("gui_running")
     set guioptions+=c
 "    colorscheme oceandeep 
 "    colorscheme wombat
-    colorscheme zenburn
+"    colorscheme zenburn
+    colorscheme solarized
     set background=dark
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 7 antialias
 else
 "    colorscheme desert
-    colorscheme zenburn
+"    colorscheme zenburn
+    set background=dark
+    colorscheme solarized
     set mouse=a
     set ttymouse=xterm
     set termencoding=utf-8
@@ -83,6 +86,10 @@ set foldnestmax=2
 " skipped, restore hlsearch and save them to ~/.viminfo
 set viminfo='20,<50,s100,h,n~/.viminfo
 
+" Trailing whitespaces
+syntax match Error "\s\+$"
+syntax match Error "\t"
+
 set makeprg=ghc\ %<.hs
 set errorformat=
                     \%-Z\ %#,
@@ -119,6 +126,10 @@ au FileType java map ,c :s/^/\/\/ /<CR>
 au FileType java map ,C :s.^// .. <CR> :noh <CR>
 
 au FileType python map <F6> :!igor %<CR> <bar> :e!<CR>
+
+" Disable tab expansion in HTML/Template files
+au FileType html set noexpandtab
+au FileType htmldjango set noexpandtab
 
 "
 "" Tip 80
