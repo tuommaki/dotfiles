@@ -15,16 +15,15 @@ if has("gui_running")
     set guioptions+=a
     set guioptions+=c
 "    colorscheme oceandeep 
+    colorscheme zenburn
 "    colorscheme wombat
-"    colorscheme zenburn
-    colorscheme solarized
     set background=dark
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 7 antialias
 else
 "    colorscheme desert
-"    colorscheme zenburn
+    colorscheme zenburn
     set background=dark
-    colorscheme solarized
+"    colorscheme wombat
     set mouse=a
     set ttymouse=xterm
     set termencoding=utf-8

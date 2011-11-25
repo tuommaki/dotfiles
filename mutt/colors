@@ -1,20 +1,60 @@
+## quoting levels
+color quoted green default
+color quoted1 cyan default
+color quoted2 magenta default
+color quoted3 yellow default
+color quoted4 red default
+color quoted5 green default
+color quoted6 cyan default
+color quoted7 magenta default
+color quoted8 yellow default
+color quoted9 red default
 
-# Mutt color settings
-color normal      white          default
-color attachment  brightyellow   default
-color hdrdefault  cyan           default
-color indicator   brightblue     default
-color markers     brightred      default
-color quoted      green          default
-color signature   cyan           default
-color tilde       blue           default
-color tree        red            default
-color quoted1     green          default
+color hdrdefault cyan default
+## adapted from /etc/Muttrc.d/colors.rc
+color header red default ^Date:
+color header green default ^From:
+color header cyan default ^To:
+color header cyan default ^Reply-To:
+color header blue default ^Cc:
+color header magenta default ^Subject:
+color body red default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body magenta default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color body yellow default ={4,}
+color body cyan default -{4,}
+color body magenta default \\*{4,}
+color body blue default [[][[:alnum:]]+[]]
 
-color index       brightyellow   default ~N # New
-color index       yellow         default ~O # Old
-color index       brightred      default ~F # Flagged
+color normal default default
+color status cyan black
+color attachment green default
+color indicator black green
+color tree cyan default
+color signature cyan default
 
-# example of how to colorize based on FROM:
-# color index     magenta        default '~f foo@example.com'
+## index colors
 
+# unread
+color index brightgreen default "~N"
+color index brightgreen default "~O"
+
+# mailing list
+color index magenta default "~l"
+
+color index cyan default "~l ~N"
+color index cyan default "~l ~O"
+
+# from me
+color index blue default "~P"
+
+# already replied to
+color index blue default "~Q"
+
+# important (flagged)
+color index red default "~F"
+
+# deleted
+color index black blue "~D"
+
+# tagged
+color index yellow default "~T"
