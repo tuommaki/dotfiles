@@ -67,6 +67,7 @@ myKeys = M.fromList $
    , ((mod4Mask     , xK_b      ), sendMessage ToggleStruts)
    , ((mod4Mask     , xK_a      ), sendMessage MirrorShrink)
    , ((mod4Mask     , xK_z      ), sendMessage MirrorExpand)
+   , ((mod4Mask .|. shiftMask, xK_q), spawn "xfce4-session-logout")
 
  
    -- multimedia keys
