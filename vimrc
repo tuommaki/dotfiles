@@ -1,38 +1,36 @@
+
 set nocompatible
+filetype off
 
-syntax on
-filetype on
-filetype indent on
-filetype plugin on
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized.git'
 
 
-if has("gui_running")
-    let &guicursor = &guicursor . ",a:blinkon0"
-    set guioptions-=e
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=r
-    set guioptions+=a
-    set guioptions+=c
-"    colorscheme oceandeep
-    colorscheme zenburn
-"    colorscheme wombat
-    set background=dark
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 7 antialias
-else
-"    colorscheme desert
-"    colorscheme zenburn
-    colorscheme solarized
-    set background=dark
-"    colorscheme wombat
-    set mouse=a
-    set ttymouse=xterm
-    set termencoding=utf-8
-endif
-
+" The actual Vim settings
+filetype plugin indent on
 
 set cul
 set history=100
+set mouse=a
+set ttymouse=xterm
+set termencoding=utf-8
+set laststatus=2
+set encoding=utf-8
+
+colorscheme solarized
+set background=dark
+
+let g:Powerline_symbols = 'fancy'
 
 " Use enhanced command-line completion mode
 set wildmenu
@@ -40,10 +38,8 @@ set wildmenu
 set wildmode=list:longest
 " Ignore these file extensions
 set wildignore=*.o,*.obj,*.class,*.pyc,*.jpg,*.png,*.gif,*.pdf
-
 " Set backup directory
 set backupdir=~/.vim/backups
-
 " Set swap file directory
 set directory=~/.vim/swap
 
@@ -58,19 +54,12 @@ set ts=2
 set expandtab
 
 set hidden
-
 " Copy indent from current line when starting a new line
 set autoindent
 " Do smart autoindenting when starting a new line.
 set smartindent
 
-
-set visualbell
-set laststatus=2
-set statusline=%<%f%=\ [%1*%M%*%n%R%H]\ \ %-25(%3l,%c%03V\ \ %P\ (%L)%)%12o'%03b'
-
 set backspace=indent,eol,start
-
 set printoptions=paper:a4,syntax:n
 
 
@@ -95,43 +84,11 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLEave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set makeprg=ghc\ %<.hs
-set errorformat=
-                    \%-Z\ %#,
-                    \%W%f:%l:%c:\ Warning:\ %m,
-                    \%E%f:%l:%c:\ %m,
-                    \%E%>%f:%l:%c:,
-                    \%+C\ \ %#%m,
-                    \%W%>%f:%l:%c:,
-                    \%+C\ \ %#%tarning:\ %m,
-
-
-let hs_highlight_boolean=1
-let hs_highlight_types=1
-let hs_allow_hash_operator=1
-
-let g:haskell_indent_if   = 2
-let g:haskell_indent_case = 4
-
-
-map F :let &fen = !&fen<CR>
-
 map <F8> :NERDTreeToggle<CR>
 map <Leader>f <Esc>:1,$!xmllint --format -<CR>
 map <Leader>j <Esc>:%!json_xs -f json -t json-pretty<CR>
 
-"set tags=./tags,./TAGS,tags,TAGS,~/Work/Repositories/EyeOne/trunk/Source/server/tags,/usr/lib/jvm/java-6-sun/src/tags
-"set tags=./tags,./TAGS,tags,TAGS,/usr/lib/jvm/java-6-sun/src/tags,/home/tuommaki/Sources/httpcomponents-core-4.0/tags
 set tags=./tags,./TAGS,tags,TAGS
-
-" ,/ C/C++/C#/Java // comments
-au FileType c map <Leader>c :s/^/\/\/ /<CR>
-au FileType c map <Leader>C :s.^// .. <CR> :noh <CR>
-au FileType java map <Leader>c :s/^/\/\/ /<CR>
-au FileType java map <Leader>C :s.^// .. <CR> :noh <CR>
-
-au FileType python map <F6> :!igor %<CR> <bar> :e!<CR>
-autocmd BufNewFile,BufRead *.py compiler nose
 
 " Disable tab expansion in HTML/Template files
 au FileType html set noexpandtab
@@ -172,4 +129,5 @@ if has("autocmd")
    " Reload vimrc after editing
    autocmd BufWritePost ~/.vimrc source ~/.vimrc
 endif
+
 
