@@ -14,14 +14,15 @@ if has("gui_running")
     set guioptions-=r
     set guioptions+=a
     set guioptions+=c
-"    colorscheme oceandeep 
+"    colorscheme oceandeep
     colorscheme zenburn
 "    colorscheme wombat
     set background=dark
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 7 antialias
 else
 "    colorscheme desert
-    colorscheme zenburn
+"    colorscheme zenburn
+    colorscheme solarized
     set background=dark
 "    colorscheme wombat
     set mouse=a
@@ -52,8 +53,8 @@ set nowrap
 set ignorecase
 set smartcase
 set number
-set shiftwidth=3
-set ts=3
+set shiftwidth=2
+set ts=2
 set expandtab
 
 set hidden
@@ -80,14 +81,19 @@ set foldmethod=indent
 set foldlevel=0
 set foldnestmax=2
 
+let mapleader=","
 
 " Remember marks for the last 20 files, contents of registers (up to 50 lines), registers with more than 100 KB text are
 " skipped, restore hlsearch and save them to ~/.viminfo
 set viminfo='20,<50,s100,h,n~/.viminfo
 
 " Trailing whitespaces
-syntax match Error "\s\+$"
-syntax match Error "\t"
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLEave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 set makeprg=ghc\ %<.hs
 set errorformat=
@@ -111,20 +117,21 @@ let g:haskell_indent_case = 4
 map F :let &fen = !&fen<CR>
 
 map <F8> :NERDTreeToggle<CR>
-map ,f <Esc>:1,$!xmllint --format -<CR>
-map ,j <Esc>:%!json_xs -f json -t json-pretty<CR>
+map <Leader>f <Esc>:1,$!xmllint --format -<CR>
+map <Leader>j <Esc>:%!json_xs -f json -t json-pretty<CR>
 
 "set tags=./tags,./TAGS,tags,TAGS,~/Work/Repositories/EyeOne/trunk/Source/server/tags,/usr/lib/jvm/java-6-sun/src/tags
 "set tags=./tags,./TAGS,tags,TAGS,/usr/lib/jvm/java-6-sun/src/tags,/home/tuommaki/Sources/httpcomponents-core-4.0/tags
 set tags=./tags,./TAGS,tags,TAGS
 
 " ,/ C/C++/C#/Java // comments
-au FileType c map ,c :s/^/\/\/ /<CR>
-au FileType c map ,C :s.^// .. <CR> :noh <CR>
-au FileType java map ,c :s/^/\/\/ /<CR>
-au FileType java map ,C :s.^// .. <CR> :noh <CR>
+au FileType c map <Leader>c :s/^/\/\/ /<CR>
+au FileType c map <Leader>C :s.^// .. <CR> :noh <CR>
+au FileType java map <Leader>c :s/^/\/\/ /<CR>
+au FileType java map <Leader>C :s.^// .. <CR> :noh <CR>
 
 au FileType python map <F6> :!igor %<CR> <bar> :e!<CR>
+autocmd BufNewFile,BufRead *.py compiler nose
 
 " Disable tab expansion in HTML/Template files
 au FileType html set noexpandtab
