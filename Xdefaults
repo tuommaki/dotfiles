@@ -1,32 +1,25 @@
-!XTerm*background: #2c2c2c
-!XTerm*foreground: #dcdccc
-!XTerm*background: #2c2c2c
-!XTerm*foreground: #dcdccc
-!XTerm*highlightColor: #ffffff
-XTerm*utf8: 1
-XTerm*termName: xterm-256color
-XTerm*faceName: xft:Monospace:size=8
-XTerm*boldFont: xft:Monospace:style=Bold:size=8
-XTerm*scrollBar: false
-XTerm*colorMode: true
-XTerm*eightBitInput: false
-XTerm*saveLines: 65536
+#include "/home/tmak/.colors/solarized_dark"
+!#include "/home/tmak/.colors/k3"
 
+Xft*dpi:        96
+Xft*antialias:  1
+Xft*hinting:    1
+Xft*hintstyle:  hintfull
+Xft*rgba:       rgb
+Xft.autohint:   0
+Xft.lcdfilter:  lcddefault
 
+*font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
+!*font: xft:Inconsolata:pixelsize=10
 
-!-------------------------------------------------------------------------------
-!
-!
-!      U R X V T
-!
-!
-
-
-URxvt*font:              -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1
-URxvt*boldFont:          -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1
+!-- URXVT --!
+URxvt.font:       [codeset=ISO10646]xft:Envy Code R for Powerline:size=8,\
+                  [codeset=ISO10646]xft:Inconsolata:regular:size=10
+URxvt.boldFont:   [codeset=ASCII]xft:Envy Code R for Powerline:bold:size=8,\
+                  [codeset=ISO10646]xft:Inconsolata:bold:size=10
+URxvt.italicFont: [codeset=ASCII]xft:Envy Code R for Powerline:italic:size=8,\
+                  [codeset=ISO10646]xft:Inconsolata:italic:size=10
 URxvt*termName:          rxvt-256color
-URxvt*background:        #171717
-URxvt*foreground:        #7e8082
 URxvt*scrollBar:         false
 URxvt*secondaryscroll:   true
 URxvt*buffered:          true
@@ -35,6 +28,7 @@ URxvt*colorBD:           #b4927d
 URxvt*internalBorder:    3
 URxvt*loginShell:	       true
 URxvt*saveLines:         32767
+URxvt*iso14755:          false
 URxvt*iso14755_52:       false
 
 URxvt*cutchars:		    "()*,<>[]{}|"
@@ -47,42 +41,19 @@ URxvt*allow_bold:        true
 URxvt*depth:             24
 URxvt*dynamicColors:     on
 
-Xft*dpi:                 96
-Xft*antialias:           false
-Xft*hinting:             full
+!urxvt.transparent: true
+!urxvt.shading:10
 
-URxvt*mapAlert:          true
-URxvt*visualBell:        true
-URxvt*urgentOnBell:      true
-URxvt*shading:           88
+!urxvt.font: xft:Terminus:pixelsize=14
 
-URxvt*keysym.C-u:        perl:matcher
-URxvt*keysym.Home:       \033[1~
-URxvt*keysym.End:        \033[4~
-
-!Black
-URxvt*color0:            #434343
-URxvt*color8:            #5d5f5e
-!Red
-URxvt*color1:            #a16a71
-URxvt*color9:            #c7838f
-!Green
-URxvt*color2:            #7aa16a
-URxvt*color10:           #93c783
-!Yellow
-URxvt*color3:            #a1926a
-URxvt*color11:           #c7b983
-!Blue
-URxvt*color4:            #6a80a1
-URxvt*color12:           #839fc7
-!Magenta
-URxvt*color5:            #916aa1
-URxvt*color13:           #c483c7
-!Cyan
-URxvt*color6:            #6aa0a1
-URxvt*color14:           #83c7bc
-!White
-URxvt*color7:            #a8a8a8
-URxvt*color15:           #cacac8
-
-
+!-- XTERM --!
+xterm*metaSendsEscape: true
+xterm*eightBitInput: false
+xterm*utf8: 2
+xterm*locale: 1
+xterm*borderWidth: 0
+!xterm*font: -xos4-terminus-medium-*-normal-*-10-*-*-*-*-*-iso10646-1
+xterm*font: -*-termsyn.icons-medium-r-*-*-12-*-*-*-*-*-*-*
+! xterm*faceName: Terminus:pixelsize=12
+!xterm*faceName: Ubuntu Mono:pixelsize=15
+!xterm*faceName: Liberation Mono:pixelsize=14
