@@ -11,9 +11,14 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Shougo/vimproc'
 Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kana/vim-filetype-haskell'
+Bundle 'ujihisa/neco-ghc'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'klen/python-mode'
 
 
 " The actual Vim settings
@@ -93,6 +98,8 @@ set tags=./tags,./TAGS,tags,TAGS
 " Disable tab expansion in HTML/Template files
 au FileType html set noexpandtab
 au FileType htmldjango set noexpandtab
+
+au FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 "
 "" Tip 80
