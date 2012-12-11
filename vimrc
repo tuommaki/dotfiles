@@ -19,6 +19,8 @@ Bundle 'kana/vim-filetype-haskell'
 Bundle 'ujihisa/neco-ghc'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'klen/python-mode'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'davidhalter/jedi-vim'
 
 
 " The actual Vim settings
