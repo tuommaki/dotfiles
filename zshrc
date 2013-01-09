@@ -6,7 +6,7 @@ fi
 HISTFILE=~/.zhistory
 HISTSIZE=8192
 SAVEHIST=8192
-setopt autocd extendedglob
+setopt autocd extendedglob braceccl
 bindkey -e
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
