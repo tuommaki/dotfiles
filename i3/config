@@ -148,3 +148,5 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 #exec i3-config-wizard
+exec xscreensaver -nosplash
+exec nm-applet
