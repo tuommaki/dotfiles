@@ -19,8 +19,12 @@ Bundle 'kana/vim-filetype-haskell'
 Bundle 'ujihisa/neco-ghc'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'klen/python-mode'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'vim-scripts/wombat256'
 
 
 " The actual Vim settings
@@ -38,6 +42,7 @@ colorscheme solarized
 set background=dark
 
 let g:Powerline_symbols = 'fancy'
+let g:jedi#popup_on_dot = 0
 
 " Use enhanced command-line completion mode
 set wildmenu
