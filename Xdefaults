@@ -1,5 +1,6 @@
-#include "/home/tmak/.colors/solarized_dark"
-!#include "/home/tmak/.colors/k3"
+! General colors
+*background: #1c1c1c
+*foreground: #afaf5f
 
 Xft*dpi:        96
 Xft*antialias:  1
@@ -23,8 +24,8 @@ URxvt*termName:          rxvt-256color
 URxvt*scrollBar:         false
 URxvt*secondaryscroll:   true
 URxvt*buffered:          true
-URxvt*cursorColor:       #868887
-URxvt*colorBD:           #b4927d
+!URxvt*cursorColor:       #868887
+!URxvt*colorBD:           #b4927d
 URxvt*internalBorder:    3
 URxvt*loginShell:	       true
 URxvt*saveLines:         32767

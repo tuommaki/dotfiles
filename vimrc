@@ -38,7 +38,7 @@ set termencoding=utf-8
 set laststatus=2
 set encoding=utf-8
 
-colorscheme solarized
+colorscheme wombat256
 set background=dark
 
 let g:Powerline_symbols = 'fancy'

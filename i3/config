@@ -138,6 +138,14 @@ bar {
         status_command i3status
 }
 
+
+#######################################################################
+# Colour configurations
+client.focused          #dcadc2 #b24d7a #ffffff #2e9ef4
+client.focused_inactive #eb2c3  #5f676a #ffffff #484e50
+client.unfocused        #dcdee5 #aeb2c3 #000000 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
