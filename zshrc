@@ -3,10 +3,9 @@ if [ -f ~/.zsh.completionrc ]; then
     source ~/.zsh.completionrc
 fi
 
-HISTFILE=~/.zhistory
-HISTSIZE=8192
-SAVEHIST=8192
-setopt autocd extendedglob braceccl
+setopt autocd extendedglob braceccl prompt_subst
+autoload -Uz vcs_info
+
 bindkey -e
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
@@ -56,6 +55,30 @@ function change_layout() {
 function gitdiff() {
   git diff --no-ext-diff -w "$@" | vim -R -
 }
+
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
+
+HISTFILE=~/.zhistory
+HISTSIZE=8192
+SAVEHIST=8192
+
+PROMPT=$'%{%F{cyan}%}[%T] $(vcs_info_wrapper)%{%F{red}%}%m%{%F{white}%}> %{%f%}'
+RPROMPT="%{%F{green}%}%~%{%f%}"
 
 export EDITOR=/usr/bin/vim
 export TERMINAL=/usr/bin/urxvt256c-ml
