@@ -24,7 +24,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'vim-scripts/VimClojure'
-Bundle 'vim-scripts/wombat256'
+Bundle 'noahfrederick/Hemisu'
 
 
 " The actual Vim settings
@@ -38,10 +38,10 @@ set termencoding=utf-8
 set laststatus=2
 set encoding=utf-8
 
-colorscheme wombat256
+colorscheme solarized
 set background=dark
 
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'compatible'
 let g:jedi#popup_on_dot = 0
 
 " Use enhanced command-line completion mode
