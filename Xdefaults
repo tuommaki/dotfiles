@@ -5,19 +5,19 @@ Xft*antialias:  1
 Xft*hinting:    1
 Xft*hintstyle:  hintfull
 Xft*rgba:       rgb
-Xft.autohint:   0
+Xft.autohint:   1
 Xft.lcdfilter:  lcddefault
 
-*font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
-!*font: xft:Inconsolata:pixelsize=10
+!*font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
+*font: xft:Bitstream Vera Sans Mono for Powerline:pixelsize=8
 
 !-- URXVT --!
-URxvt.font:       [codeset=ISO10646]xft:Envy Code R for Powerline:size=8,\
-                  [codeset=ISO10646]xft:Inconsolata:regular:size=10
-URxvt.boldFont:   [codeset=ASCII]xft:Envy Code R for Powerline:bold:size=8,\
-                  [codeset=ISO10646]xft:Inconsolata:bold:size=10
-URxvt.italicFont: [codeset=ASCII]xft:Envy Code R for Powerline:italic:size=8,\
-                  [codeset=ISO10646]xft:Inconsolata:italic:size=10
+URxvt.font:       xft:Bitstream Vera Sans Mono for Powerline:size=8
+!                  [codeset=ISO10646]xft:Inconsolata:regular:size=10
+URxvt.boldFont:   xft:Bitstream Vera Sans Mono for Powerline:bold:size=8
+!                  [codeset=ISO10646]xft:Inconsolata:bold:size=10
+URxvt.italicFont: xft:Bitstream Vera Sans Mono for Powerline:italic:size=8
+!                 [codeset=ASCII] ,\[codeset=ISO10646]xft:Inconsolata:italic:size=10
 URxvt*termName:          rxvt-256color
 URxvt*scrollBar:         false
 URxvt*secondaryscroll:   true
@@ -51,8 +51,9 @@ xterm*eightBitInput: false
 xterm*utf8: 2
 xterm*locale: 1
 xterm*borderWidth: 0
+xterm*scrollBar: off
 !xterm*font: -xos4-terminus-medium-*-normal-*-10-*-*-*-*-*-iso10646-1
 !xterm*font: -*-termsyn.icons-medium-r-*-*-12-*-*-*-*-*-*-*
-xterm*faceName: Terminus:pixelsize=12
+xterm*faceName: Bitstream Vera Sans Mono for Powerline:pixelsize=10
 !xterm*faceName: Ubuntu Mono:pixelsize=15
 !xterm*faceName: Liberation Mono:pixelsize=14
