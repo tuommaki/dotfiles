@@ -1,0 +1,35 @@
+" .nexrc
+
+" Automatically indent code
+set autoindent
+
+set columns=80
+set shiftwidth=8
+set tabstop=8
+
+" Show line numbers
+"set number
+
+" Show row,col in status line
+set ruler
+
+" Extended regular expressions
+set extended
+
+" Case-insensitive regexes, as long as there's no upper-case letters in it
+set iclower
+
+" Treat certain characters specially in regexes
+set magic
+
+" Incremental search
+set searchincr
+
+" Show matching brackets
+set showmatch
+
+set errorbells
+set flash
+
+
+

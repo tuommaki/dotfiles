@@ -15,16 +15,17 @@ set fast_reply=yes
 set indent_str="> "
 set sig_dashes
 set tilde
+set rfc2047_parameters
 
 
 # Cache email headers
 set header_cache="~/.muttheaders"
 
 # All the emails mutt should consider as being from me.
-alternates (tuomas.makinen@<from>.(com|fi))
+alternates (<emailaddress>)
 
 # "ignore all headers by default"
-ignore * 
+ignore *
 
 # I do want to see these fields, though~
 unignore date from subject to cc bcc
@@ -45,12 +46,8 @@ source ~/.mutt/mailboxes
 
 # Me
 set realname="Tuomas Makinen"
-set from=tuomas.makinen@<from>.com
+set from=<emailaddress>
 set use_from=yes
-
-# Mailing lists
-subscribe haskell-cafe@haskell.org
-subscribe beginners@haskell.org
 
 # Show the text mime firstly
 alternative_order text/plain text/html
@@ -77,19 +74,29 @@ set pager_index_lines=10
 macro index       h "c?\t"    # show the "folder view" when I hit h
 
 # Highlight links and follow them using w3m when I hit ctrl b
-#macro pager \cb \
-#<enter-command>'set pipe_decode'<enter>\
-#<pipe-entry>'w3m'<enter>\
-#<enter-command>'unset pipe_decode'<enter> \
-#'Follow links in w3m'
-auto_view text/html application/msword
+macro pager \cb \
+<enter-command>'set pipe_decode'<enter>\
+<pipe-entry>'w3m'<enter>\
+<enter-command>'unset pipe_decode'<enter> \
+'Follow links in w3m'
+
+auto_view text/html
 
 # Printer
-set print_command="a2ps -g -Email -d -1 -M a4 -R"
+set print_command="a2ps -g -Email --encoding=utf-8 -d -1 -M a4 -R"
 
 # abook settings
 # abook is a cool command-line address book program that works with mutt
 set query_command="abook --mutt-query '%s'"
 macro index \ca !abook\n
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+
+
+macro index <F8> \
+          "<enter-command>unset wait_key<enter><shell-escape>/bin/notmuch-mutt -r --prompt search<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter>" \
+          "search mail (using notmuch)"
+macro index <F9> \
+          "<enter-command>unset wait_key<enter><pipe-message>/bin/notmuch-mutt thread<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter><enter-command>set wait_key<enter>" \
+          "search and reconstruct owning thread (using notmuch)"
+
 

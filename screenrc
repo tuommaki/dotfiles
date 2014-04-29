@@ -1,8 +1,0 @@
-defscrollback 1024
-startup_message off
-
-caption always "%?%{ Wk}%-Lw%?%{Rk}%n*%f %t%?(%u)%?%?%{Wk}%+Lw%? %{Rk}%= %{rk}"
-
-hardstatus on
-hardstatus alwayslastline
-hardstatus string "%{+b kr}[ %H ] %{kw} Load: %l %-=%  %{kb} %c:%s  %d.%m.%Y "
