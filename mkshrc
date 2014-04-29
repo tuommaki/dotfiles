@@ -1,0 +1,74 @@
+# ~/.mkshrc
+
+
+
+# Change keyboard layout between us and finnish
+function change_layout() {
+   SETXKBMAP_BIN=$(which setxkbmap)
+   XMODMAP_BIN=$(which xmodmap)
+   #GREP_BIN=$(which grep) # grep's itself an alias - this fucks up if used..
+   GREP_BIN=grep
+   AWK_BIN=$(which awk)
+
+   cur_layout=$($SETXKBMAP_BIN -print | $GREP_BIN "xkb_symbols" | $AWK_BIN '{ print $4 }' | $AWK_BIN -F"+" '{print $2}')
+
+   if [ "$cur_layout" != "us" ]; then
+      $SETXKBMAP_BIN -layout us
+   else
+      $SETXKBMAP_BIN -layout fi
+   fi
+
+   $XMODMAP_BIN ~/.Xmodmap
+}
+
+function hr() {
+  tput rev
+  tput bold
+  printf '%0.s=' $(seq 1 $(tput cols))
+  tput sgr0
+}
+
+PS1='#'; (( USER_ID )) && PS1='$'; [[ ${HOSTNAME:=$(ulimit -c 0; hostname -s \
+    2>/dev/null)} = *([	 ]|localhost) ]] && HOSTNAME=$(ulimit -c 0; hostname \
+    2>/dev/null); : ${EDITOR:=/bin/ed} ${HOSTNAME:=nil} ${TERM:=vt100}
+: ${MKSH:=$(whence -p mksh)}; PS4='[$EPOCHREALTIME] '; PS1=$'\001\r''${|
+	local e=$?
+
+	(( e )) && REPLY+="[1;41m$e[00m|"
+
+  local time=$(date +%H:%M)
+	REPLY+="[36m$time|${HOSTNAME%%.*}[00m:"
+
+	local d=${PWD:-?} p=~; [[ $p = ?(*/) ]] || d=${d/#$p/~}
+	local m=${%d} n p=...; (( m > 0 )) || m=${#d}
+	(( m > (n = (COLUMNS/3 < 7 ? 7 : COLUMNS/3)) )) && d=${d:(-n)} || p=
+	REPLY+="[93m$p$d[00m"
+
+	return $e
+} '"$PS1 ";
+
+HISTFILE="$HOME/.mksh_history"
+HISTSIZE=65536
+
+export EDITOR=/usr/bin/vim
+export TERMINAL=/bin/uxterm
+export EMAIL=<emailaddress>
+export AWT_TOOLKIT=XToolkit
+
+if [ -e /lib/terminfo/x/xterm-256color -o -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+else
+        export TERM='xterm-color'
+fi
+
+export JAVA_HOME=/usr/java/default
+export SCALA_HOME=/home/tmak/apps/scala-2.10.2
+export GOPATH=/home/tmak/apps
+
+PATH=/home/tmak/apps/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
+PATH=$PATH:/home/tmak/apps/python-venv/bin:/home/tmak/bin
+PATH=$PATH:/home/tmak/apps/sbt/bin
+export PATH
+
+
+# vim:ft=sh
