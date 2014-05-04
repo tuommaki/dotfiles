@@ -2,7 +2,8 @@ XTerm*utf8: 2
 XTerm*borderWidth: 0
 XTerm*saveLines: 32768
 XTerm*scrollBar: off
-XTerm*faceName: Ubuntu Mono Unhinted:pixelsize=12
-XTerm*foreground: #e3e1e1
-XTerm*background: black
+XTerm*foreground: #d3d7cf
+XTerm*background: #252627
 XTerm*metaSendsEscape: true
+XTerm*loginShell: true
+XTerm*visualBell: true
