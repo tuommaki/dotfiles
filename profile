@@ -34,10 +34,6 @@ HISTSIZE=32768
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 export PATH HOME TERM
 
-# Use Stockholm's mirror for pkgs & sources
-export PKG_PATH=http://ftp.eu.openbsd.org/pub/OpenBSD/5.5/packages/`machine -a`/
-export CVSROOT=anoncvs@anoncvs.eu.openbsd.org:/cvs
-
 # utf8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
