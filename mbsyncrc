@@ -1,0 +1,61 @@
+SyncState *
+
+MaildirStore Local$ACCOUNT
+Path "~/mail/$ACCOUNT/"
+Inbox "~/mail/$ACCOUNT/Inbox"
+AltMap no
+
+MaildirStore LocalGmail
+Path "~/mail/gmail/"
+Inbox "~/mail/gmail/INBOX"
+AltMap no
+
+IMAPAccount $ACCOUNT 
+Host imaps:outlook.office365.com
+Port 993
+User "$EMAILADDRESS"
+Pass ""
+RequireCRAM no
+RequireSSL yes
+UseSSLv2 yes
+UseSSLv3 yes
+UseTLSv1 yes
+CertificateFile ~/.cert/BaltimoreCyberTrustRoot.pem
+
+IMAPAccount Gmail
+Host imaps:imap.gmail.com
+Port 993
+User ""
+Pass ""
+RequireCRAM no
+RequireSSL yes
+UseSSLv2 yes
+UseSSLv3 yes
+UseTLSv1 yes
+CertificateFile /etc/ssl/cert.pem
+
+IMAPStore IMAP$ACCOUNT
+Account $ACCOUNT
+Path "/"
+MapInbox "Inbox"
+Trash "Deleted Items"
+TrashNewOnly yes
+
+IMAPStore IMAPGmail
+Account Gmail
+Path "/"
+MapInbox "INBOX"
+Trash "[Gmail]/Trash"
+TrashNewOnly yes
+
+Channel $ACCOUNTChannel
+Master :IMAP$ACCOUNT:
+Slave :Local$ACCOUNT:
+Patterns "Inbox" "Drafts" "Sent Items" "Deleted Items" "Junk Email"
+Create Slave
+
+Channel GmailChannel
+Master :IMAPGmail:
+Slave :LocalGmail:
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/Spam"
+Create Slave
