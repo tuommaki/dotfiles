@@ -23,10 +23,9 @@ set printoptions=paper:a4,syntax:n
 
 syntax on
 
-" style(9)
-set noexpandtab
-set ts=8
-set sts=4
+set expandtab
+set ts=4
+set sts=2
 set sw=4
 
 " Configure line numbers
