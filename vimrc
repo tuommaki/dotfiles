@@ -62,6 +62,9 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'nowk/genericdc'
+Plugin 'brookhong/cscope.vim'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,4 +84,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLEave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-colorscheme desert
+"colorscheme desert
+colorscheme strange
+
+let g:airline_powerline_fonts = 1
