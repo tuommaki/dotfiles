@@ -75,6 +75,8 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <F8> :NERDTreeToggle<CR>
+map <Leader>f <Esc>:1,$!xmllint --format -<CR>
+map <Leader>j <Esc>:%!python -m json.tool<CR>
 
 " Highlight extra whitespace in end of line
 hi ExtraWhitespace ctermbg=White
