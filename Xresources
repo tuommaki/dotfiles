@@ -1,9 +1,0 @@
-XTerm*utf8: 2
-XTerm*borderWidth: 0
-XTerm*saveLines: 32768
-XTerm*scrollBar: off
-XTerm*foreground: #d3d7cf
-XTerm*background: #252627
-XTerm*metaSendsEscape: true
-XTerm*loginShell: true
-XTerm*visualBell: true
