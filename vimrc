@@ -79,6 +79,8 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'unblevable/quick-scope'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

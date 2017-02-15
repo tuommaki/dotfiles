@@ -43,7 +43,7 @@ export PROJECT_ID=sokli-1377
 export NVM_DIR="/home/tmak/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-PATH=/usr/local/go/bin:/home/tmak/bin:/home/tmak/.local/bin:/bin:/sbin:/usr/bin
+PATH=/usr/local/go/bin:/home/tmak/.cargo/bin:/home/tmak/.local/bin:/bin:/sbin:/usr/bin
 PATH=$PATH:/usr/sbin:/usr/local/bin:/home/tmak/apps/python-venv/bin
 PATH=$PATH:$JAVA_HOME/bin:${GOPATH//://bin:}/bin
 export PATH
