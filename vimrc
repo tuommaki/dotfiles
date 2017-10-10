@@ -5,7 +5,7 @@
 " NOTE: See bottom of the config for Vundle plugins
 
 set cul
-set history=100
+set history=500
 set termencoding=utf-8
 set encoding=utf-8
 set showmode
@@ -30,7 +30,7 @@ set sw=4
 
 " Configure line numbers
 set numberwidth=4
-set number
+set relativenumber
 
 " Modeline
 set laststatus=2
@@ -110,13 +110,15 @@ autocmd BufWinLeave * call clearmatches()
 
 "colorscheme desert
 "colorscheme strange
-colorscheme wombat256mod
+"colorscheme wombat256mod
 "colorscheme molokai
+colorscheme monokain
 "colorscheme nofrils-dark
 "colorscheme nofrils-sepia
 
-" Ugh, following makes Vim lightning fast but I'm missing my cursorline :(
-set nocursorline
+" If Vim feels slow on rendering, disable cursorline
+"set nocursorline
+set cursorline
 
 " ==================== Lightline ====================
 "
