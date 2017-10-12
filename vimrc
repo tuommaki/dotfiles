@@ -77,7 +77,6 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'unblevable/quick-scope'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
@@ -108,13 +107,19 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLEave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Dark is good
+set background=dark
+
 "colorscheme desert
 "colorscheme strange
 "colorscheme wombat256mod
 "colorscheme molokai
-colorscheme monokain
+"colorscheme monokain
 "colorscheme nofrils-dark
 "colorscheme nofrils-sepia
+"colorscheme zenburn
+colorscheme gruvbox
+
 
 " If Vim feels slow on rendering, disable cursorline
 "set nocursorline
