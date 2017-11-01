@@ -64,8 +64,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
+Plugin 'jacoborus/tender.vim'
 Plugin 'nowk/genericdc'
 Plugin 'brookhong/cscope.vim'
 Plugin 'itchyny/lightline.vim'
@@ -98,6 +100,7 @@ map <Leader>t :GoTest<CR>
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType markdown set textwidth=80
 au FileType ruby set tabstop=2 shiftwidth=2
+au FileType yaml set tabstop=2 shiftwidth=2
 
 " Highlight extra whitespace in end of line
 hi ExtraWhitespace ctermbg=White
@@ -249,6 +252,8 @@ endfunction
 let g:terraform_fmt_on_save = 1
 
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 
 " Vim-go syntax highlightning
