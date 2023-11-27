@@ -1,0 +1,9 @@
+theme = "catppuccin_frappe"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+true-color = true
+
+[keys.normal]
+C-t = "jump_backward"
