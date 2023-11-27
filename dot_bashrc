@@ -26,6 +26,8 @@ __prompt_command() {
     PS1="${exit_status}${CYAN}\A|\h${RESET}${YELLOW}:\w $ ${RESET}"
 }
 
+. "$HOME/.cargo/env"
+
 export EDITOR=hx
 export HISTSIZE=32768
 export KIND_EXPERIMENTAL_PROVIDER=podman
@@ -43,4 +45,3 @@ export OPS_DIR="$HOME/.ops"
 export PATH="$HOME/.ops/bin:$PATH"
 source "$HOME/.ops/scripts/bash_completion.sh"
 
-. "$HOME/.cargo/env"
