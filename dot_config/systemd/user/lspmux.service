@@ -1,0 +1,10 @@
+[Unit]
+Description=Language server multiplexer server
+
+[Service]
+Type=simple
+ExecStart=/home/tuommaki/.cargo/bin/lspmux server
+
+[Install]
+WantedBy=default.target
+

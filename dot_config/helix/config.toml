@@ -5,5 +5,8 @@ line-number = "relative"
 bufferline = "multiple"
 true-color = true
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 C-t = "jump_backward"

@@ -1,0 +1,5 @@
+[language-server.rust-analyzer]
+args = ["client", "--server-path", "/home/tuommaki/.cargo/bin/rust-analyzer"]
+command = "/home/tuommaki/.cargo/bin/lspmux"
+
+

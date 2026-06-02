@@ -1,0 +1,4 @@
+# bat config file
+
+# set line wrap automatically based on terminal width
+--wrap=auto
