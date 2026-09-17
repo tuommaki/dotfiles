@@ -1,0 +1,22 @@
+{{- if eq .chezmoi.os "linux" }}
+#!/bin/sh
+set -eu
+
+if ! command -v gsettings >/dev/null 2>&1; then
+    exit 0
+fi
+
+schema="org.gnome.desktop.wm.keybindings"
+
+if ! gsettings list-schemas | grep -qx "$schema"; then
+    exit 0
+fi
+
+# Center current window
+gsettings set "$schema" move-to-center \
+    "['<Super>u']"
+
+# Maximize current window vertically
+gsettings set "$schema" maximize-vertically \
+    "['<Super>i']"
+{{- end }}
